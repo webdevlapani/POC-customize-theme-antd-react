@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Button, ConfigProvider, Typography } from "antd";
+
+const clientA = {
+  primaryColor: "#28B56F",
+  infoColor: "#faad14",
+  errorColor: "red",
+};
+
+const clientB = {
+  primaryColor: "#125288",
+  infoColor: "#89CC67",
+  errorColor: "#FF0000",
+};
+
+ConfigProvider.config({
+  theme: clientA,
+});
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ConfigProvider>
+        <Button type="primary">Test Button</Button>
+        <Typography.Text type="danger">Typography</Typography.Text>
+      </ConfigProvider>
     </div>
   );
 }
